@@ -1,0 +1,75 @@
+*
+{
+    box-sizing: border-box;
+}
+body
+{
+    background-color: #f9fafb;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+.contain
+{
+    background-color:#F5F5F5;
+    display: flex;
+   flex-direction: column;
+   position: absolute;
+   top: 10%;
+   left: 40%;
+   width: 50%;
+   transform: translateX(-25%);
+   border: solid 1px black;
+}
+.button
+{
+    margin-left: 10%;
+}
+button
+{
+    color: white;
+    border-radius: 10px;
+    height: 4vh;
+    margin-top: 5%;
+    
+}
+.success, .notification .vert
+{
+    background-color: #39AE59;
+}
+.danger, .notification .rouge
+{
+    background-color: #BD2130;
+}
+.warning, .notification .jaune
+{
+    background-color: #FFC107;
+}
+.info, .notification .bleu
+{
+    background-color: #1CA4BD;
+}
+
+.notification .vert.hide,.notification .rouge.hide,.notification .jaune.hide,.notification .bleu.hide
+{
+    display: none;
+} 
+
+.notification
+{
+    display: flex;
+    flex-direction: column-reverse;
+   margin-top: 10%;
+}
+.notification p
+{
+    margin-top: 12%;
+}
+.notification div
+{
+    height: 10vh;
+    width: 20%;
+    margin-bottom: 10%;
+    text-align: center;
+    margin-left: 70%;
+}
+

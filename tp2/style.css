@@ -1,0 +1,137 @@
+*
+{
+    box-sizing: border-box;
+}
+body
+{
+    background-color: #f9fafb;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+.contain
+{
+    display: flex;
+    width: 100%;
+}
+nav
+{
+    background-color: #353A3F;
+    height: 100vh;
+    width: 18%;
+}
+
+nav p
+{
+    color: white;
+    margin-left: 12%;
+}
+
+.burger img
+{
+    width: 10%;
+}
+.name_site, .log_connect
+{
+    margin-top: 3%;
+}
+.log_connect img
+{
+    position: relative;
+    margin-top: 8%;
+    height: 8vh;
+}
+
+.name_site p, .log_connect p
+{
+    margin-top: 15%;
+}
+.log_connect, .name_site
+{
+    display: flex;
+    margin-bottom: 3%;
+    border-bottom: 1px solid black;
+}
+
+.search input
+{
+    background-color: #353A3F;
+    width: 85%;
+    margin-left: 2%;
+    height: 4vh;
+    color: wheat;
+    font-size: 23px;
+}
+
+.search i
+{
+    position: absolute;
+    left: 16%;
+}
+.menu-gen
+{
+    display: flex;
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin-top: 2%;
+    justify-content: space-between;
+}
+.sub 
+{
+    margin-top: 10%;
+    display: none;
+}
+.sub.hide
+{
+    display: block;
+}
+.sub .menu-gen
+{
+    border-bottom: none;
+    width: 100%;
+}
+.menu-gen li 
+{
+    list-style-type: none; 
+    margin-top: -1%;
+    display: flex   ;
+}
+
+.menu-gen p
+{
+    text-transform: uppercase;
+}
+.menu-gen .span
+{
+    position: absolute;
+    left: 16.5%;
+    display: flex;
+}
+.menu-gen:hover
+{
+    background-color: #2F7DF6;
+    border-radius: 200px;
+}
+/* js */
+
+.search.hide
+{
+    display: none;
+}
+.nav.hide
+{
+    
+    width: 5%;
+}
+.nav.hide p, .nav.hide span
+{
+    display: none;
+}
+.nav.hide i
+{
+   margin-left: 12%;
+}
+.menu-gen.hide i
+{
+    position: absolute;
+    
+}
