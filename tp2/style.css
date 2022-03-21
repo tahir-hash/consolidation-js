@@ -118,13 +118,17 @@ nav p
     display: none;
 }
 .nav.hide
-{
-    
-    width: 5%;
+{ 
+    width: 8%;
+    padding-left: 1%;
+    padding-top: 1%;
+    transition: margin-right 2s ease-in-out;
 }
 .nav.hide p, .nav.hide span
 {
     display: none;
+    padding-top: 1%;
+
 }
 .nav.hide i
 {

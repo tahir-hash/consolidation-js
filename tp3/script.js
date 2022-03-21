@@ -1,4 +1,5 @@
 const img = document.getElementById('carousel');
+const contain = document.querySelector('.container')
 const rightBtn = document.getElementById('right-btn');
 const leftBtn = document.getElementById('left-btn');
 
@@ -20,9 +21,10 @@ const moveRight = () => {
         return;
     }
     img.src = pictures[position + 1];
-    position++;
+    position++; 
 }
-sliderInterval = setInterval(moveRight, 5000);
+var interval= setInterval(moveRight, 5000);
+ 
 const moveLeft = () => {
     if (position < 1) {
         position = pictures.length - 1;
@@ -35,7 +37,3 @@ const moveLeft = () => {
 
 rightBtn.addEventListener("click", moveRight);
 leftBtn.addEventListener("click", moveLeft);
-img.addEventListener('mouseover', function(){
-    //img.style.transform="scale(1.3)";
-    alert('po');
-});

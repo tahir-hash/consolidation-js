@@ -98,6 +98,12 @@ const input = document.querySelector('.search')
  function load(menu)
 {
         menu.forEach(element => {
+            generate(element);
+        });
+};
+load(menu);
+function generate (element)
+{
             const div=document.createElement('div');
             div.setAttribute("class", "menu-gen");
             const li=document.createElement('li');
@@ -122,6 +128,4 @@ const input = document.querySelector('.search')
             li.appendChild(span);
             span.appendChild(secondi);
             lien.appendChild(div);
-        });
-};
-load(menu);
+}
