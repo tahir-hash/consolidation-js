@@ -16,7 +16,6 @@ body
 nav
 {
     background-color: #353A3F;
-    height: 100vh;
     width: 18%;
 }
 
@@ -33,11 +32,12 @@ nav p
 .name_site, .log_connect
 {
     margin-top: 3%;
+    margin-left: 4%;
 }
-.log_connect img
+.log_connect img, .name_site img
 {
-    position: relative;
-    margin-top: 8%;
+    margin-top: 6%;
+    margin-bottom: 2%;
     height: 8vh;
 }
 
@@ -61,81 +61,74 @@ nav p
     color: wheat;
     font-size: 23px;
 }
-
 .search i
 {
     position: absolute;
     left: 16%;
 }
-.menu-gen
+.menu
 {
     display: flex;
-    border-bottom: 1px solid black;
+    flex-direction: column;
+    margin-left: -4%;
+    margin-bottom: 30%;
+
+}
+.first
+{
+    display: flex;
+    border-bottom: 1px solid #ecf0f1;
     width: 100%;
     margin-top: 2%;
-    justify-content: space-between;
+}
+.first small
+{
+    position: absolute;
+    left: 16%;
+    top: 32%;
+}
+.derou
+{
+    display: flex;
+    margin-left: 46%;
+}
+.derou .close
+{
+    display: none;
 }
 .sub 
 {
-    margin-top: 10%;
+    margin-top: 16%;
+    margin-left: -100%;
     display: none;
+}
+.sub li
+{
+    list-style-type: none;
+    display: flex;
+    border-bottom: 0.5px solid #ecf0f1;
+    margin-bottom: 3%;
+    width: 100%;
 }
 .sub.hide
 {
     display: block;
 }
-.sub .menu-gen
+.sub li
 {
     border-bottom: none;
     width: 100%;
 }
-.menu-gen li 
+.first
 {
-    list-style-type: none; 
-    margin-top: -1%;
-    display: flex   ;
+    display: flex;
 }
-
-.menu-gen p
+.first p
 {
     text-transform: uppercase;
 }
-.menu-gen .span
+.first:hover
 {
-    position: absolute;
-    left: 16.5%;
-    display: flex;
+    border-radius: 30px;
 }
-.menu-gen:hover
-{
-    background-color: #2F7DF6;
-    border-radius: 200px;
-}
-/* js */
 
-.search.hide
-{
-    display: none;
-}
-.nav.hide
-{ 
-    width: 8%;
-    padding-left: 1%;
-    padding-top: 1%;
-    transition: margin-right 2s ease-in-out;
-}
-.nav.hide p, .nav.hide span
-{
-    display: none;
-    padding-top: 1%;
-
-}
-.nav.hide i
-{
-   margin-left: 12%;
-}
-.menu-gen.hide i
-{
-    position: absolute;
-    
-}

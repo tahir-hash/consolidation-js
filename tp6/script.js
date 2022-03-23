@@ -1,6 +1,7 @@
 const contain =document.querySelector('.contain');
 const header =document.querySelector('header');
 const search =document.querySelector('header input');
+const icones_search=document.querySelector('header i');
 const favorites =document.querySelector('.favorites');
 const img_favorites =document.querySelector('.favorites img');
 const text_favorites =document.querySelector('.favorites h2');
@@ -42,6 +43,7 @@ function genererElements(tab)
     window.location.reload();
   });  
   //modal
+  
   i.addEventListener('click',()=>{
     modal.classList.add('show');
     pop_up(tab);
@@ -58,14 +60,10 @@ function pop_up(tab)
   img_mod.src=tab.strMealThumb;
   var paragraphe=document.querySelector('.description p');
   paragraphe.innerText=tab.strInstructions;
-  var ul=document.querySelector('.ing ul');
-  for(var i=1 ; i<=20; i++)
-  {
-    var li=document.createElement('li');
-    li.innerText=tab.strIngredient+i;
-    ul.appendChild(li);
-  }
-  
+  var ul=document.querySelector('.ing ol');
+  const li=document.createElement('li');
+  li.innerText=tab.strIngredient1;
+  //ul.appendChild(li);
 }
 rechercher_food(generator);
 ///
@@ -98,15 +96,14 @@ function rechercher_food(url)
 }
 
 close.addEventListener('click', ()=>{
-  modal.classList.add('remove');
   modal.classList.remove('show');
-
 })
-const tr= document.querySelectorAll('.test')
+/* const tr= document.querySelectorAll('.test')
+
 tr.forEach(element => {
   element.addEventListener('click',()=>
   {
     modal.classList.add('show');
     pop_up(tab);
   })
-});
+}); */

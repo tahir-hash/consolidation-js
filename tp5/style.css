@@ -32,13 +32,17 @@ header input
     background-color: #373B69;
     border: 1px solid black;
 }
-.movies_container, .recherche
+.movies_container
 {
     display: flex;
     width: 100%;   
     flex-wrap: wrap;
-    margin-bottom: 6%;
+    margin-bottom: 4%;
     margin-top: -2%;
+}
+.recherche
+{
+    margin-top: 1%;
 }
 .subcontain
 {
@@ -103,11 +107,29 @@ header input
     color: #257E36;
 }
 
-.movies_container.search
+/* loader */
+.loader
+{
+    width: 100%;
+    height: 300px;
+    position: fixed;
+    top: 50%;
+    left: 45%;
+}
+.loader.hidden
 {
     display: none;
 }
-.recherche.hide
+.loading 
 {
-    display: none;
-}
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #373B69; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

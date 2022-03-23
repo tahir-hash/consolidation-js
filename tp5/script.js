@@ -3,7 +3,9 @@ const header =document.querySelector('header');
 const form =document.querySelector('form');
 const movies_container =document.querySelector('.movies_container');
 const recherche =document.querySelector('.recherche');
-var search =document.querySelector('header input')
+var search =document.querySelector('header input');
+const loader=document.querySelector(".loader");
+const loading=document.querySelector(".loading");
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const APIURL =
 "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -53,15 +55,39 @@ function genererElements(tab)
   });
 
 }
+//load
+
 //
   movies(APIURL)
+/* function movies(url)
+{
+  async function asy()
+  {
+    await fetch(url).then(response => await response.json().then(data => {
+      data.results.forEach(element => {
+        genererElements(element);
+        console.log(element)
+      });
+    })); 
+  }
+  asy()
+} */
 function movies(url)
 {
-  fetch(url).then(response => response.json().then(data => {
+  async function asy()
+  {
+    let reponse =await fetch(url);
+    let data =await reponse.json();
+    console.log(data);
     data.results.forEach(element => {
       genererElements(element);
     });
-  })); 
+  } 
+  asy()
+  window.addEventListener('load', ()=>{
+    movies(APIURL);
+    loader.classList.add('hidden');
+  })
 }
   //recherche
 search.addEventListener('keyup', function(){
@@ -80,3 +106,17 @@ search.addEventListener('keyup', function(){
     movies(APIURL)
   }
 });
+
+/* btn.addEventListener('click', ()=>
+{
+  i=i+1;
+  console.log(i)
+  var test=
+  `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${i}`;
+  movies(test);
+}); */
+
+window.addEventListener('load', ()=>{
+  movies(APIURL);
+  loader.classList.add('hidden');
+})
