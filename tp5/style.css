@@ -49,16 +49,13 @@ header input
     display: flex;
     flex-direction: column;
     width: 22%;
-    margin: 2% 0 0 2%;
+    margin: 3% 0 0 2%;
+    
 }
 .text_img
 {
     display: flex;
     flex-direction: column;
-}
-.text_img img
-{
-    height: 31.25em;
 }
 .text
 {
@@ -79,17 +76,21 @@ header input
 .text.hover
 {
     display: block;
+    height: 40%;
+    animation-name: lightSpeedInRight;
+    animation-duration: 1s;
 }
-.text_img.hover img
-{
-    height: 15.625em;
-}
+
 .title
 {
     height: 7em;
     background-color: #373B69;
     display: flex;
     justify-content: space-between;
+}
+.title.hover 
+{
+    display: none;
 }
 .title h2
 {

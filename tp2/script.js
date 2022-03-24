@@ -29,11 +29,11 @@ var menu =[
     {
         "img_name":"fa-solid fa-chart-pie fa-2x",
         "name_menu": "Charts",
-        "deplier":"fa-solid fa-arrow-down-long fa-2x ",
+        "deplier":"fa-solid fa-arrow-down-long fa-2x",
         "deplier1":"fa-solid fa-arrow-left fa-2x close",
         "sousMenu":[
             {
-                "img_name":"fa-solid fa-circle fa-2x",
+                "img_name":"fa-solid fa-circle fa-2x sous",
                 "name_menu": "ChartJS",
                 "deplier":"",
                 "deplier1":"",
@@ -42,7 +42,7 @@ var menu =[
                 "number":""
             },
             {
-                "img_name":"fa-solid fa-circle fa-2x",
+                "img_name":"fa-solid fa-circle fa-2x sous",
                 "name_menu": "Flot",
                 "deplier":"",
                 "deplier1":"",
@@ -51,7 +51,7 @@ var menu =[
                 "number":""
             },
             {
-                "img_name":"fa-solid fa-circle fa-2x",
+                "img_name":"fa-solid fa-circle fa-2x sous",
                 "name_menu": "Inline",
                 "deplier":"",
                 "deplier1":"",
@@ -60,7 +60,7 @@ var menu =[
                 "number":""
             },
             {
-                "img_name":"fa-solid fa-circle fa-2x",
+                "img_name":"fa-solid fa-circle fa-2x sous",
                 "name_menu": "Uplot",
                 "deplier":"",
                 "deplier1":"",
@@ -93,15 +93,51 @@ var menu =[
     {
         "img_name":"fa-solid fa-table fa-2x",
         "name_menu": "Tables",
-        "deplier":"",
-        "deplier1":"",
-        "sousMenu":[],
+        "deplier":"fa-solid fa-arrow-down-long fa-2x",
+        "deplier1":"fa-solid fa-arrow-left fa-2x close",
+        "sousMenu":[
+            {
+                "img_name":"fa-solid fa-circle fa-2x sous",
+                "name_menu": "table1",
+                "deplier":"",
+                "deplier1":"",
+                "sousMenu":[],
+                "new":"",
+                "number":""
+            },
+            {
+                "img_name":"fa-solid fa-circle fa-2x sous",
+                "name_menu": "table2",
+                "deplier":"",
+                "deplier1":"",
+                "sousMenu":[],
+                "new":"",
+                "number":""
+            },
+            {
+                "img_name":"fa-solid fa-circle fa-2x sous",
+                "name_menu": "table3",
+                "deplier":"",
+                "deplier1":"",
+                "sousMenu":[],
+                "new":"",
+                "number":""
+            },
+            {
+                "img_name":"fa-solid fa-circle fa-2x sous",
+                "name_menu": "table4",
+                "deplier":"",
+                "deplier1":"",
+                "sousMenu":[],
+                "new":"",
+                "number":""
+            }
+        ],
         "new":"",
         "number":""
     }
 ]
 //declaration
-const p =document.querySelectorAll('p');
 const nav =document.querySelector('.nav');
 const input = document.querySelector('.search')
 const ul= document.querySelector(".menu");
@@ -110,15 +146,11 @@ const close=document.getElementById('close');
 const sub=document.querySelector(".sub");
 const burger =document.querySelector('.burger img');
 
-/*  burger.addEventListener('click', function()
+ burger.addEventListener('click', function()
  {  
      input.classList.toggle('hide');
      nav.classList.toggle('hide');
- }); */
- 
-/* fleche.addEventListener('click', function(){
-     sub.classList.toggle('hide');
-}); */
+ });
 
  //creation de menu
  function load(menu)
@@ -148,8 +180,9 @@ function generate (element)
     fouri= document.createElement('i');
     fouri.setAttribute("class",element.number );
     const ul1= document.createElement('ul');
-    /* ul1.setAttribute('class',"sub");
-    var test= generate(element.sousMenu); */
+    ul1.setAttribute('class',"sub");
+
+  
     //apend
     
     li.appendChild(firsti);
@@ -160,18 +193,14 @@ function generate (element)
     span.appendChild(secondi);
     span.appendChild(second1);
     li.appendChild(span);
-/* ul1.appendChild(test)
-    li.appendChild(ul1); */
+    //ul1.appendChild(sous(element.sousMenu,ul1))
     ul.appendChild(li);
-    //event
-
-    span.addEventListener('click', function(){
-     sub.classList.toggle('hide');
-     alert('ok')
+    element.sousMenu.forEach(element => {
+        generate(element);
     });
-
+    //event
+    secondi
 }
-
 
 /* const ul1=document.createElement('ul');
         const li1 =document.createElement('li');

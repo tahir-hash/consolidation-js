@@ -7,8 +7,9 @@ var search =document.querySelector('header input');
 const loader=document.querySelector(".loader");
 const loading=document.querySelector(".loading");
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
+var i=1;
 const APIURL =
-"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
+`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=`;//
 
 function genererElements(tab)
 {
@@ -45,12 +46,13 @@ function genererElements(tab)
 
   img.addEventListener('mouseover', function(){
     text.classList.add('hover');
-    text_img.classList.add('hover');
-
+    title.classList.add('hover');
+    text_img.classList.add('hover')
   });
   img.addEventListener('mouseleave', function(){
     text.classList.remove('hover');
-    text_img.classList.remove('hover');
+    title.classList.remove('hover');
+    text_img.classList.remove('hover')
 
   });
 
@@ -59,36 +61,15 @@ function genererElements(tab)
 
 //
   movies(APIURL)
-/* function movies(url)
-{
-  async function asy()
+  function movies(url)
   {
-    await fetch(url).then(response => await response.json().then(data => {
+    fetch(url).then(response => response.json().then(data => {
       data.results.forEach(element => {
         genererElements(element);
-        console.log(element)
       });
     })); 
   }
-  asy()
-} */
-function movies(url)
-{
-  async function asy()
-  {
-    let reponse =await fetch(url);
-    let data =await reponse.json();
-    console.log(data);
-    data.results.forEach(element => {
-      genererElements(element);
-    });
-  } 
-  asy()
-  window.addEventListener('load', ()=>{
-    movies(APIURL);
-    loader.classList.add('hidden');
-  })
-}
+
   //recherche
 search.addEventListener('keyup', function(){
   if(search.value!="")
@@ -120,3 +101,17 @@ window.addEventListener('load', ()=>{
   movies(APIURL);
   loader.classList.add('hidden');
 })
+
+//reload
+window.addEventListener('scroll', ()=>{
+  const scroll=document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled=window.scrollY;
+  if(Math.ceil(scrolled)=== scroll)
+  {
+    i++;
+    console.log(i)
+    /* localStorage.setItem('page', i);
+    console.log(localStorage.getItem('page')); */
+    movies(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${i}`)
+  }
+});

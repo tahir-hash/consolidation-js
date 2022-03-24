@@ -7,7 +7,6 @@ const img_favorites =document.querySelector('.favorites img');
 const text_favorites =document.querySelector('.favorites h2');
 const recettes =document.querySelector('.recettes');
 const modal =document.querySelector('.modal');
-const close=document.getElementById('close')
 
 var generator="https://www.themealdb.com/api/json/v1/1/random.php"
 
@@ -41,7 +40,7 @@ function genererElements(tab)
   //generer
   button.addEventListener('click', function(){
     window.location.reload();
-  });  
+  }); 
   //modal
   
   i.addEventListener('click',()=>{
@@ -54,16 +53,54 @@ function genererElements(tab)
 //pop up
 function pop_up(tab)
 {
-  var titre =document.querySelector('.titre h2');
-  titre.innerText= tab.strMeal;
-  var img_mod=document.querySelector('.img_contain__rec img');
-  img_mod.src=tab.strMealThumb;
-  var paragraphe=document.querySelector('.description p');
+  const titre =document.createElement('div');
+  titre.setAttribute('class','titre');
+  const h2 =document.createElement('h2');
+  h2.innerText= tab.strMeal;
+  const close=document.createElement('button');
+  close.setAttribute('type','button');
+  close.innerText="x";
+  const contain_rec=document.createElement('div');
+  contain_rec.setAttribute('class','contain_rec')
+  const img_contain__rec=document.createElement('div');
+  img_contain__rec.setAttribute('class','img_contain__rec');
+  const image=document.createElement('img');
+  image.src=tab.strMealThumb;
+  const description=document.createElement('div');
+  description.setAttribute('class','description');
+  var paragraphe=document.createElement('p');
   paragraphe.innerText=tab.strInstructions;
-  var ul=document.querySelector('.ing ol');
-  const li=document.createElement('li');
-  li.innerText=tab.strIngredient1;
-  //ul.appendChild(li);
+  const ing=document.createElement('div');
+  ing.setAttribute('class','ing');
+  const ing_title=document.createElement('h1');
+  ing_title.innerText="Ingredients:";
+  const ol=document.createElement('ol');
+  for(var cpt=1; cpt<=20; cpt++)
+  {
+    if(tab['strIngredient'+cpt]!=='')
+    {
+      const li=document.createElement('li');
+      li.innerText=tab['strIngredient'+cpt];
+      ol.appendChild(li)
+    }
+  }
+  //append
+  titre.appendChild(h2);
+  titre.appendChild(close);
+  img_contain__rec.appendChild(image);
+  description.appendChild(paragraphe);
+  ing.appendChild(ing_title);
+  ing.appendChild(ol);
+  contain_rec.appendChild(img_contain__rec);
+  contain_rec.appendChild(description);
+  contain_rec.appendChild(ing);
+  modal.appendChild(titre);
+  modal.appendChild(contain_rec);
+  //append
+  close.addEventListener('click', ()=>{
+    modal.classList.remove('show');
+   modal.innerHTML="";
+  })
 }
 rechercher_food(generator);
 ///
@@ -75,8 +112,6 @@ search.addEventListener('keyup', function(){
     let SEARCHAPI =
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${search.value}`;
     rechercher_food(SEARCHAPI);
-    
-
   }
   else
   {
@@ -94,16 +129,3 @@ function rechercher_food(url)
     }); 
   })); 
 }
-
-close.addEventListener('click', ()=>{
-  modal.classList.remove('show');
-})
-/* const tr= document.querySelectorAll('.test')
-
-tr.forEach(element => {
-  element.addEventListener('click',()=>
-  {
-    modal.classList.add('show');
-    pop_up(tab);
-  })
-}); */

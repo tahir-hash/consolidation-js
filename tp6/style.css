@@ -101,6 +101,7 @@ header i
     width: 20%;
     background-color: #FFFFFF;
 }
+
 .recettes.hide #button
 {
    display: none;
@@ -124,14 +125,17 @@ header i
 /* POPUP */
 .modal
 {
-    width: 80%;
-    position: absolute;
+    width: 30%;
+    position: fixed;
+    height: 80vh;
    display: flex;
    flex-direction: column;
-   left: 10%;
+   left: 35%;
    top: 13%;
    background-color: white ;
    display: none;
+   animation-duration: 2s;
+   overflow-y: scroll;
 }
 .modal.show
 {

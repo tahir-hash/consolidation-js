@@ -65,6 +65,11 @@ nav p
 {
     position: absolute;
     left: 16%;
+   
+}
+i
+{
+    color: white;
 }
 .menu
 {
@@ -83,9 +88,9 @@ nav p
 }
 .first small
 {
-    position: absolute;
-    left: 16%;
-    top: 32%;
+    position: relative;
+    left: 20%;
+    margin-top: 3%;
 }
 .derou
 {
@@ -113,6 +118,31 @@ nav p
 .sub.hide
 {
     display: block;
+}
+.nav.hide
+{
+
+    width: 5%;
+}
+.nav.hide .first
+{
+    border-bottom: none;
+    margin-bottom: 50%;
+}
+.nav.hide .first:hover
+{
+    background-color: #2F7DF6;
+}
+
+.nav.hide p, .nav.hide span, .nav.hide small
+{
+    display: none;
+    padding-top: 1%;
+
+}
+.search.hide 
+{
+    display: none;
 }
 .sub li
 {
